@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Учебный пример кроссбраузерной вёрстки: CSS Grid, float, фолбэки, префиксы, @supports и Modernizr.">
+    <title>Домашнее задание 17</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Modernizr подключается в head, чтобы классы .cssgrid / .no-cssgrid
+        были добавлены на <html> ещё до отрисовки страницы. -->
+    <script src="modernizr-custom.js"></script>
+</head>
+<body>
+
+    <main class="page">
+        <h1>Кроссбраузерность</h1>
+        <p class="intro">
+            Простой пример сравнения современного CSS Grid и устаревшего
+            способа построения колонок с помощью float.
+        </p>
+
+        <section aria-labelledby="example-title">
+            <h2 id="example-title">Пример макета</h2>
+
+            <!-- По умолчанию карточки размещаются через float.
+                Modernizr добавит класс .cssgrid на <html>, если браузер
+                поддерживает display: grid, и .no-cssgrid - если не
+                поддерживает. -->
+            <div class="examples clearfix">
+                <article class="example-card">
+                    <h3>CSS Grid</h3>
+                    <p>
+                        Современный способ создания строк и колонок.
+                        В этом примере Grid включается через @supports
+                        и подтверждается классом Modernizr .cssgrid.
+                    </p>
+                    <code>display: grid;</code>
+                </article>
+
+                <article class="example-card">
+                    <h3>Float</h3>
+                    <p>
+                        Старый способ размещения элементов рядом.
+                        Здесь он используется как фолбэк для старых браузеров
+                        и для браузеров с классом .no-cssgrid.
+                    </p>
+                    <code>float: left;</code>
+                </article>
+            </div>
+        </section>
+
+        <section aria-labelledby="methods-title">
+            <h2 id="methods-title">Способы адаптации</h2>
+            <ul>
+                <li>CSS-префиксы: <code>-webkit-</code>, <code>-moz-</code>, <code>-ms-</code>, <code>-o-</code>.</li>
+                <li>Фолбэк на основе <code>float</code>.</li>
+                <li>Проверка поддержки через <code>@supports</code>.</li>
+                <li>Проверка поддержки через библиотеку <code>Modernizr</code> (классы <code>.cssgrid</code> / <code>.no-cssgrid</code> на <code>&lt;html&gt;</code>).</li>
+                <li>Адаптация под мобильный экран через медиазапрос.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="conclusion-title">
+            <h2 id="conclusion-title">Вывод</h2>
+            <p>
+                Современные браузеры используют удобную Grid-сетку. Старые
+                браузеры получают более простое оформление через float, но
+                содержимое остаётся читаемым и доступным.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
